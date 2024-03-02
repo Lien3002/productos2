@@ -1,32 +1,32 @@
 import React from "react";
 import "./App.css";
-import NavBar from "./Components/NavBar.jsx";
 import ReactDOM from "react-dom/client";
 import { Routes, Route } from "react-router-dom";
+import NavBar from "./Components/NavBar.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import descripcion from "./pages/descripcion.jsx";
 import Prod1 from "./pages/prod1.jsx";
 import Prod2 from "./pages/prod2.jsx";
 import Prod3 from "./pages/Prod3.jsx";
-import Footer from './Components/Footer/footer';
-
+import Footer from "./Components/Footer/footer";
+import "./Components/Firebase.jsx";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/homePage" Component={HomePage} />
+        <Route path="/home" Component={HomePage} />
         <Route path="/descripcion" Component={descripcion} />
         <Route path="/prod1" Component={Prod1} />
         <Route path="/prod2" Component={Prod2} />
         <Route path="/prod3" Component={Prod3} />
       </Routes>
-      <Footer />
       {/* <Home />
       <Benefits />
-      <Contact /> */}
-      {/* <div className="container py-4 px-3 my-4">
+    <Contact /> */}
+      <br />
+      <div className="container py-4 px-3 my-4">
         <h1>Hello, Bootstrap and Vite!</h1>
         <button className="btn btn-primary">Primary button</button>
       </div>
@@ -44,7 +44,8 @@ function App() {
             Go somewhere
           </a>
         </div>
-      </div> */}
+      </div>
+      <Footer />
     </div>
   );
 }

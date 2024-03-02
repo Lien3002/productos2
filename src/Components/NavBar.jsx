@@ -1,126 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-scroll";
-import styles from "./NavBar.module.css";
-import { AiOutlineMenu } from "react-icons/ai";
-import { AiOutlineClose } from "react-icons/ai";
-import { useScrollPosition } from "../Hooks/scrollPosition";
+import React from "react";
+import SingIn from "./Modal/SingIn.jsx";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import SingUp from "./Modal/SingUp.jsx";
 
-const NavBar = () => {
-  const [navBarOpen, setNavBarOpen] = useState(false);
-  const [windowDimension, setWindowDimension] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
-  const detectDimension = () => {
-    setWindowDimension({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", detectDimension);
-    windowDimension.width > 800 && setNavBarOpen(false);
-    return () => {
-      window.removeEventListener("resize", detectDimension);
-    };
-  }, [windowDimension]);
-
-  const links = [
-    {
-      id: 1,
-      link: "Hogar",
-    },
-    {
-      id: 2,
-      link: "Jugueteria",
-    },
-    {
-      id: 3,
-      link: "Oficina",
-    },
-    {
-      id: 4,
-      link: "Beneficios",
-    },
-  ];
-
-  const scrollPosition = useScrollPosition();
-
+function NavBar() {
   return (
-    <div
-      className={
-        navBarOpen
-          ? styles.navOpen
-          : scrollPosition > 0
-          ? styles.navOnScroll
-          : styles.navBar
-      }
-    >
-      {!navBarOpen && <p className={styles.logo}>De Todo Import</p>}
-      {!navBarOpen && windowDimension.width < 800 ? (
-        <AiOutlineMenu
-          onClick={() => setNavBarOpen(!navBarOpen)}
-          size={25}
-        />
-      ) : (
-        windowDimension.width < 800 && (
-          <AiOutlineClose
-            onClick={() => setNavBarOpen(!navBarOpen)}
-            color="#f1f1f1"
-            size={25}
-          />
-        )
-      )}
-      {navBarOpen && (
-        <ul className={styles.linksContainer}>
-          {links.map(({ id, link }) => (
-            <div>
-              <Link
-                key={id}
-                onClick={() => setNavBarOpen(false)}
-                to={link}
-                smooth
-                duration={500}
-                className={styles.navLink}
-              >
-                {link === "HowWeWork" ? "Oficina" : link}
-              </Link>
-              <div className={styles.border}></div>
-            </div>
-          ))}
-        </ul>
-      )}
-      {windowDimension.width > 800 && (
-        <ul className={styles.linksContainer}>
-          {links.map(({ link, id }) => (
-            <div>
-              <Link
-                onClick={() => setNavBarOpen(false)}
-                to={link}
-                smooth
-                duration={500}
-                className={styles.navLink}
-              >
-                {link === "HowWeWork" ? "Oficina" : link}
-              </Link>
-              <div className={styles.border}></div>
-            </div>
-          ))}
-          <Link
-            onClick={() => setNavBarOpen(false)}
-            to="Contacto"
-            smooth
-            duration={500}
-            className={styles.contactoLink}
-          >
-            Contacto
-          </Link>
-        </ul>
-      )}
-    </div>
+    <Navbar expand="lg" className="bg-dark-tertiary" >
+      <Container >
+        <Navbar.Brand href="#home">De Segunda Casi Nuevo</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/prod1">Link</Nav.Link>
+            <Nav.Link href="#link"><SingIn /></Nav.Link>
+            <Nav.Link href="#link"><SingUp /></Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
-};
+}
 
 export default NavBar;

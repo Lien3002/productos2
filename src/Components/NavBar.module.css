@@ -5,6 +5,7 @@
   position: fixed;
   justify-content: space-around;
   align-items: center;
+  
 }
 
 .navOpen {
@@ -12,7 +13,7 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  background-color: #352cbf;
+  background-color: #8A3200;
   flex-direction: column;
   align-items: center;
 }
@@ -21,7 +22,7 @@
   display: flex;
   font-size: 2em;
   font-weight: 400;
-  color: #f3d4d4;
+  color: #909090;
   padding-top: 20px;
 }
 
@@ -34,7 +35,7 @@
   height: 2px;
   animation-name: animacionborde;
   animation-duration: 1s;
-  background-color: rgb(57, 145, 115);
+  /* background-color: #C5C5C5; */
 }
 
 @keyframes animacionborder {
@@ -48,23 +49,46 @@
 
 .logo {
   display: flex;
-  color: #f75252;
+  color: #ffffff;
   font-weight: 600;
 }
 
-@media (min-width: 800px) {
+.navOnScroll {
+  display: flex;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  justify-content: space-around;
+  align-items: center;
+  background:#612400;
+}
+
+.contactoLink {
+  display: flex;
+  font-size: 1.5em;
+  font-weight: 400;
+  background-color: #000000;
+  border-radius: 4px;
+  padding: 3px;
+  cursor: pointer;
+}
+.contactoLink:hover {
+  font-size: 2em;
+  transition: 0.5s;
+}
+@media (min-width: 768px) {
   .logo {
     font-size: 1.5em;
   }
   .navBar {
     align-content: center;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     height: 50px;
   }
   .linksContainer {
     display: flex;
-    width: 50%;
+    width: 60%;
     flex-direction: row;
     justify-content: space-evenly;
   }
@@ -82,31 +106,5 @@
     align-items: center;
     justify-content: space-evenly;
     height: 50px;
-    background-color: #4a4564;
   }
-}
-
-.navOnScroll {
-  display: flex;
-  height: 50px;
-  width: 100%;
-  position: fixed;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #4a4564;
-}
-
-.contactoLink {
-  color: #f1f1f1;
-  display: flex;
-  font-size: 1.5em;
-  font-weight: 400;
-  background-color: #227396;
-  border-radius: 4px;
-  padding: 3px;
-  cursor: pointer;
-}
-.contactoLink:hover {
-  font-size: 2em;
-  transition: 0.5s;
 }
